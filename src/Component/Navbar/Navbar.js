@@ -1,7 +1,21 @@
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/UserContext';
+import { UserCircleIcon } from '@heroicons/react/24/solid'
 import logo from "../../favicon.ico"
 const Navbar = () => {
 
+    const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                navigate('/login');
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
     return (
         <div className="navbar bg-sky-900">
             <div className="navbar-start">
@@ -14,8 +28,15 @@ const Navbar = () => {
                         <li><Link to='/courses'>Courses</Link></li>
                         <li><Link to='/weblog'>Weblog</Link></li>
                         <li><Link to='/faq'>FAQ</Link></li>
-                        <li><Link to='/register'>Sign Up</Link></li>
-                        <li><Link to='/login'>Sign In</Link></li>
+                        {
+                            user?.uid ?
+                                <li><button onClick={handleLogout}>Log Out</button></li>
+                                :
+                                <>
+                                    <li><Link to='/register'>Sign Up</Link></li>
+                                    <li><Link to='/login'>Sign In</Link></li>
+                                </>
+                        }
                     </ul>
                 </div>
                 <Link to='/' className="btn btn-ghost normal-case text-xl text-white"><img src={logo} alt="" className='h-6 w-6 mr-2' /> MILES AHEAD</Link>
@@ -26,12 +47,32 @@ const Navbar = () => {
                     <li><Link to='/courses'>Courses</Link></li>
                     <li><Link to='/weblog'>Weblog</Link></li>
                     <li><Link to='/faq'>FAQ</Link></li>
-                    <li><Link to='/register'>Sign Up</Link></li>
-                    <li><Link to='/login'>Sign In</Link></li>
+                    {
+                        user?.uid ?
+                            <li><button onClick={handleLogout}>Log Out</button></li>
+                            :
+                            <>
+                                <li><Link to='/register'>Sign Up</Link></li>
+                                <li><Link to='/login'>Sign In</Link></li>
+                            </>
+                    }
                 </ul>
             </div>
-            <div className="navbar-end">
-                <Link className="btn">Get started</Link>
+            <div className="navbar-end text-white">
+                {/* {user?.email && <span> {user?.displayName ? user?.displayName : user?.email}</span>} */}
+
+                {
+                    user?.email && <div className='tooltip tooltip-left tooltip-success' data-tip={user?.displayName ? user?.displayName : user?.email}>
+
+                        {
+                            user?.photoURL ?
+                                <img src={user?.photoURL} alt="" className='h-10 rounded-full' />
+                                :
+                                <UserCircleIcon className='h-7 w-7'/>
+                        }
+                    </div>
+                }
+
             </div>
         </div>
     );
