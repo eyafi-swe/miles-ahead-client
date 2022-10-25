@@ -3,7 +3,7 @@ import { MapPinIcon, EnvelopeIcon, PhoneIcon, LinkIcon } from '@heroicons/react/
 import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
-        <div className='bg-sky-900 py-5'>
+        <div className='bg-sky-900 py-5 mt-10'>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5  container mx-auto px-5'>
                 <div className='text-white'>
                     <h1 className='text-xl font-semibold mb-2 border-b'>MILES AHEAD</h1>

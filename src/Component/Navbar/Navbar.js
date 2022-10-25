@@ -12,7 +12,7 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content bg-sky-400 mt-3 p-2 shadow text-white rounded-box w-52">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/courses'>Courses</Link></li>
-                        <li><Link to='blog'>Blog</Link></li>
+                        <li><Link to='/weblog'>Weblog</Link></li>
                         <li><Link to='/faq'>FAQ</Link></li>
                         <li><Link to='/register'>Sign Up</Link></li>
                         <li><Link to='/login'>Sign In</Link></li>
@@ -24,7 +24,7 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal p-0 text-white">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/courses'>Courses</Link></li>
-                    <li><Link to='/blog'>Blog</Link></li>
+                    <li><Link to='/weblog'>Weblog</Link></li>
                     <li><Link to='/faq'>FAQ</Link></li>
                     <li><Link to='/register'>Sign Up</Link></li>
                     <li><Link to='/login'>Sign In</Link></li>

@@ -24,7 +24,8 @@ function App() {
           element: <Courses></Courses>
         },
         {
-          path:'/blog',
+          path:'/weblog',
+          loader: ()=> fetch('http://localhost:5000/blogs'),
           element: <Blog></Blog>
         },
         {
