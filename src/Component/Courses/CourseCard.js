@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CourseCard = (props) => {
-    const { _id, title, image, duration, learning_content, introductory, course_mentor } = props.course;
+    const { _id, title, image, duration, course_mentor } = props.course;
     return (
         <div className='bg-slate-50 shadow-lg rounded-lg relative'>
 

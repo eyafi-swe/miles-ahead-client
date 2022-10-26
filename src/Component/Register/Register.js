@@ -63,9 +63,9 @@ const Register = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Image Url</span>
+                                <span className="label-text">Image Url (optional)</span>
                             </label>
-                            <input type="text" name='imageurl' placeholder="Image Url" className="input input-bordered" />
+                            <input type="text" name='imageurl' placeholder="Image Url (optional)" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">

@@ -19,7 +19,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='container mx-auto grid lg:grid-cols-3 gap-5 mt-10 mb-10'>
+            <div className='container mx-auto grid lg:grid-cols-3 gap-5 mt-10 mb-10 px-5'>
                 <div className='text-center lg:text-left'>
                     <h2 className='text-2xl text-gray-500 font-semibold'>ABOUT MILES AHEAD</h2>
                     <h1 className='text-3xl font-semibold mt-2'>Develope Skills With Miles Ahead And Bright Your Future</h1>
