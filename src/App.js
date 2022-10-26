@@ -21,6 +21,7 @@ function App() {
         },
         {
           path:'/courses',
+          loader:()=> fetch('https://miles-ahead-server.vercel.app/courses'),
           element: <Courses></Courses>
         },
         {

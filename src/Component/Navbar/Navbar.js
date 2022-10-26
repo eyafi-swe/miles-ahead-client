@@ -62,7 +62,7 @@ const Navbar = () => {
                 {/* {user?.email && <span> {user?.displayName ? user?.displayName : user?.email}</span>} */}
 
                 {
-                    user?.uid && <div className='tooltip tooltip-left tooltip-success' data-tip={user?.displayName ? user?.displayName : user?.email}>
+                    user?.uid && <div className='tooltip tooltip-left tooltip-info' data-tip={user?.displayName ? user?.displayName : user?.email}>
 
                         {
                             user?.photoURL ?
