@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CourseCard = (props) => {
     const { _id, title, image, duration, course_mentor } = props.course;
+
     return (
         <div className='bg-slate-50 shadow-lg rounded-lg relative'>
 
@@ -13,7 +15,7 @@ const CourseCard = (props) => {
                     <p className='text-sm font-semibold text-gray-500'>Duration: {duration}</p>
                     <p className='text-sm font-semibold text-gray-500'>Mentor: {course_mentor}</p>
                 </div>
-                <button className=' bg-sky-600 border-none px-5 py-1 mt-2 text-white rounded absolute bottom-2'>DETAILS</button>
+                <Link to={`/courses/${_id}`} className=' bg-sky-600 border-none px-5 py-1 mt-2 text-white rounded absolute bottom-2'>DETAILS</Link>
             </div>
 
         </div>
