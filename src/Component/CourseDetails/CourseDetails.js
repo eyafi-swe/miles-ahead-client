@@ -1,18 +1,27 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Pdf from "react-to-pdf";
 import { FolderArrowDownIcon, EllipsisHorizontalCircleIcon, ArrowLeftOnRectangleIcon, CheckBadgeIcon } from '@heroicons/react/24/solid'
 
 const CourseDetails = () => {
     const selectedCourse = useLoaderData();
-    const {_id, title, image, duration, learning_content, introductory, course_mentor } = selectedCourse;
+    const { _id, title, image, duration, learning_content, introductory, course_mentor } = selectedCourse;
     const contents = learning_content.split(".");
+
+    const ref = React.createRef();
     return (
         <div className='container mx-auto mt-10 px-5 lg:px-0'>
             <div className='lg:w-2/3 mx-auto'>
-                <button className='bg-sky-600 text-white px-3 py-2 rounded flex items-center'><FolderArrowDownIcon className='h-5 w-5 mr-1' /> Download PDF</button>
+                <Pdf targetRef={ref} filename="Course_details.pdf" x={15} y={1.5} scale={0.8}>
+                    {({ toPdf }) => (
+                        // <button onClick={toPdf}>Generate pdf</button>
+                        <button className='bg-sky-600 text-white px-3 py-2 rounded flex items-center' onClick={toPdf}><FolderArrowDownIcon className='h-5 w-5 mr-1' /> Download PDF</button>
+                    )}
+                </Pdf>
+                
             </div>
 
-            <div className='mt-10 border lg:w-2/3 mx-auto pb-5 shadow-lg bg-slate-50 rounded-lg'>
+            <div className='mt-10 border lg:w-2/3 mx-auto pb-5 shadow-lg bg-slate-50 rounded-lg' ref={ref}>
                 <img src={image} alt="" className='w-full rounded-t-lg' />
                 <div className=' p-5'>
                     <h1 className='text-xl font-semibold'>Course Title: {title}</h1>
