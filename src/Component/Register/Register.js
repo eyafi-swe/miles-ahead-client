@@ -5,9 +5,9 @@ import { AuthContext } from '../../Context/UserContext';
 
 const Register = () => {
 
-    const {userSignUp, updateUserProfile} = useContext(AuthContext);
-    const [error,setError] = useState('');
-    const handleSignUp = event =>{
+    const { userSignUp, updateUserProfile } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -15,31 +15,32 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, imageUrl, email, password);
-        userSignUp(email,password)
-        .then(result =>{
-            const user = result.user;
-            setError('');
-            handleUpdateUserProfile(name,imageUrl);
-            console.log(user);
-            form.reset();
-        })
-        .catch(error =>{
-            setError(error.message);
-            console.log(error.message);
-        })
+        userSignUp(email, password)
+            .then(result => {
+                const user = result.user;
+                setError('');
+                handleUpdateUserProfile(name, imageUrl);
+                console.log(user);
+                form.reset();
+            })
+            .catch(error => {
+                setError(error.message);
+                console.log(error.message);
+            })
     }
 
-    const handleUpdateUserProfile = (name,imageUrl)=>{
+
+    const handleUpdateUserProfile = (name, imageUrl) => {
         const profile = {
-            displayName:name,
-            photoURL:imageUrl
+            displayName: name,
+            photoURL: imageUrl
         }
 
         updateUserProfile(profile)
-        .then(()=>{})
-        .catch(error =>{
-            console.error(error);
-        })
+            .then(() => { })
+            .catch(error => {
+                console.error(error);
+            })
     }
     return (
         <>
@@ -51,7 +52,7 @@ const Register = () => {
 
                 </div>
                 <div className="card md:w-1/2 lg:w-2/6 shadow-2xl mt-10 bg-base-100">
-                    <form className="card-body" onSubmit= {handleSignUp}>
+                    <form className="card-body" onSubmit={handleSignUp}>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Full Name</span>
@@ -83,19 +84,9 @@ const Register = () => {
                         <div className="form-control">
                             <button className="btn bg-sky-600 border-none">Register</button>
                         </div>
-                        <div className='mt-0'>
-                        <p className='text-center font-semibold text-xl'>Continue With</p>
-                        <div className='flex justify-center mt-2'>
-                            <button className='mr-5 bg-gray-300 hover:bg-sky-600 rounded-lg p-1 shadow-lg'>
-                                <img src="https://i.ibb.co/n0Xx56K/goggle.png" alt="goggle" border="0" className='h-10' />
-                            </button>
-                            <button className='bg-gray-300 hover:bg-sky-600 rounded-lg p-1 shadow-lg'>
-                                <img src="https://i.ibb.co/T01QJpZ/git.png" alt="git" border="0" className='h-10' />
-                            </button>
-                        </div>
-                    </div>
+
                     </form>
-                    
+
                 </div>
             </div>
         </>

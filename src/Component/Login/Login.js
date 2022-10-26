@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
+import google from '../../Assets/google.png';
+import github from '../../Assets/github.png';
 
 const Login = () => {
-    const { userSignIn } = useContext(AuthContext);
+    const { userSignIn,googleSignIn,gitSignIn } = useContext(AuthContext);
     const [error,setError] = useState('');
     const handleLogin = event => {
         event.preventDefault();
@@ -25,6 +27,32 @@ const Login = () => {
         })
 
     }
+
+    const handleGoogleSignIn = ()=>{
+        googleSignIn()
+        .then(result =>{
+            const user = result.user;
+            setError('');
+            console.log(user);
+        })
+        .catch(error =>{
+            setError(error.message);
+            console.log(error);
+        })
+    }
+    const handleGitSignIn = ()=>{
+        gitSignIn()
+        .then(result =>{
+            const user = result.user;
+            setError('');
+            console.log(user);
+        })
+        .catch(error =>{
+            setError(error.message);
+            console.log(error);
+        })
+    }
+
     return (
         <>
             <h1 className='text-center text-4xl font-bold mt-10'>Login And Dive Into The Courses</h1>
@@ -58,11 +86,11 @@ const Login = () => {
                         <div className='mt-0'>
                             <p className='text-center font-semibold text-xl'>Continue With</p>
                             <div className='flex justify-center mt-2'>
-                                <button className='mr-5 bg-gray-300 hover:bg-sky-600 rounded-lg p-1 shadow-lg'>
-                                    <img src="https://i.ibb.co/n0Xx56K/goggle.png" alt="goggle" border="0" className='h-10' />
+                                <button className='mr-5 bg-gray-300 hover:bg-sky-600 rounded-lg p-1 shadow-lg' onClick={handleGoogleSignIn}>
+                                    <img src={google} alt="goggle" border="0" className='h-10' />
                                 </button>
-                                <button className='bg-gray-300 hover:bg-sky-600 rounded-lg p-1 shadow-lg'>
-                                    <img src="https://i.ibb.co/T01QJpZ/git.png" alt="git" border="0" className='h-10' />
+                                <button className='bg-gray-300 hover:bg-sky-600 rounded-lg p-1 shadow-lg' onClick={handleGitSignIn}>
+                                    <img src={github} alt="git" border="0" className='h-10' />
                                 </button>
                             </div>
                         </div>
