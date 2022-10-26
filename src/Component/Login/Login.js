@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import google from '../../Assets/google.png';
 import github from '../../Assets/github.png';
+import loginpng from '../../Assets/loginpng.png'
 
 const Login = () => {
     const { userSignIn,googleSignIn,gitSignIn } = useContext(AuthContext);
@@ -59,7 +60,7 @@ const Login = () => {
 
             <div className='mb-10 flex lg:flex-row flex-col items-center justify-center'>
                 <div className='flex flex-col items-center'>
-                    <img src="https://i.ibb.co/xSRNbNL/pngwing-com.png" alt="pngwing-com" border="0" className='h-72 mr-5' />
+                    <img src={loginpng} alt="pngwing-com" border="0" className='h-72 mr-5' />
 
                 </div>
                 <div className="card md:w-1/2 lg:w-2/6 shadow-2xl mt-10 bg-base-100">

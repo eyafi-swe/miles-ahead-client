@@ -1,6 +1,7 @@
 import React from 'react';
 import { AcademicCapIcon, DocumentTextIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
+import education from '../../Assets/education.png'
 const Home = () => {
     return (
         <>
@@ -14,7 +15,7 @@ const Home = () => {
 
                 </div>
                 <div>
-                    <img src="https://i.ibb.co/qYNwNnL/pngwing-com.png" alt="pngwing-com" border="0" className='h-80' />
+                    <img src={education} alt="pngwing-com" border="0" className='h-80' />
                 </div>
             </div>
 

@@ -25,7 +25,7 @@ function App() {
         },
         {
           path:'/weblog',
-          loader: ()=> fetch('http://localhost:5000/blogs'),
+          loader: ()=> fetch('https://miles-ahead-server.vercel.app/blogs'),
           element: <Blog></Blog>
         },
         {
@@ -41,6 +41,10 @@ function App() {
           element: <Register></Register>
         },
       ]
+    },
+    {
+      path:'*',
+      element:<div>OOPPSS NOT FOUND!!</div>
     }
   ])
 

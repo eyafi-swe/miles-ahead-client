@@ -21,7 +21,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h1 className='text-xl font-semibold mb-2 border-b text-white'>We Accept</h1>
-                    <img src="https://i.ibb.co/JQgVhyV/ssl-commerce-1d268dce.png" alt="ssl-commerce-1d268dce" border="0"/>
+                    <img src="https://web.programming-hero.com/static/media/ssl-commerce.1d268dce.png" alt="ssl-commerce-1d268dce" border="0"/>
                 </div>
             </div>
             <div className='text-white flex justify-center mt-5'>

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
+import signuppng from '../../Assets/signuppng.png'
+
 
 const Register = () => {
 
@@ -48,7 +50,7 @@ const Register = () => {
 
             <div className='mb-10 flex lg:flex-row flex-col items-center justify-center'>
                 <div className='flex flex-col items-center'>
-                    <img src="https://i.ibb.co/9h4Kx1V/pngwing-com.png" alt="pngwing-com" border="0" className='h-72 mr-5' />
+                    <img src={signuppng} alt="pngwing-com" border="0" className='h-72 mr-5' />
 
                 </div>
                 <div className="card md:w-1/2 lg:w-2/6 shadow-2xl mt-10 bg-base-100">
