@@ -29,7 +29,9 @@ const Register = () => {
                 navigate('/');
             })
             .catch(error => {
-                setError(error.message);
+                const errormsg = error.message;
+                let errorSplit = errormsg.split(' ')
+                setError(errorSplit[2]);
                 console.log(error.message);
             })
     }

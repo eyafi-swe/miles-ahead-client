@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import { UserCircleIcon } from '@heroicons/react/24/solid'
 import DarkModeToggle from "react-dark-mode-toggle";
@@ -9,6 +9,7 @@ const Navbar = () => {
     let { dark, setDark } = useContext(DarkToggleContext);
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
     const handleLogout = () => {
         logOut()
             .then(() => {
@@ -45,17 +46,17 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 text-white">
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/courses'>Courses</Link></li>
-                    <li><Link to='/weblog'>Weblog</Link></li>
-                    <li><Link to='/faq'>FAQ</Link></li>
+                    <li><Link to='/' className = {`${location.pathname === '/' ? 'bg-sky-600' : ''}`}>Home</Link></li>
+                    <li><Link to='/courses' className = {`${location.pathname === '/courses' ? 'bg-sky-600' : ''}`}>Courses</Link></li>
+                    <li><Link to='/weblog' className = {`${location.pathname === '/weblog' ? 'bg-sky-600' : ''}`}>Weblog</Link></li>
+                    <li><Link to='/faq' className = {`${location.pathname === '/faq' ? 'bg-sky-600' : ''}`}>FAQ</Link></li>
                     {
                         user?.uid ?
                             <li><button onClick={handleLogout}>Log Out</button></li>
                             :
                             <>
-                                <li><Link to='/register'>Sign Up</Link></li>
-                                <li><Link to='/login'>Sign In</Link></li>
+                                <li><Link to='/register' className = {`${location.pathname === '/register' ? 'bg-sky-600' : ''}`}>Sign Up</Link></li>
+                                <li><Link to='/login' className = {`${location.pathname === '/login' ? 'bg-sky-600' : ''}`}>Sign In</Link></li>
                             </>
                     }
                 </ul>

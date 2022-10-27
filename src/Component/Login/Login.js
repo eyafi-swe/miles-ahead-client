@@ -32,7 +32,9 @@ const Login = () => {
                 navigate(from, {replace:true});
             })
             .catch(error => {
-                setError(error.message);
+                const errormsg = error.message;
+                let errorSplit = errormsg.split(' ')
+                setError(errorSplit[2]);
                 console.log(error);
             })
 
@@ -47,7 +49,9 @@ const Login = () => {
                 navigate(from, {replace:true});
             })
             .catch(error => {
-                setError(error.message);
+                const errormsg = error.message;
+                let errorSplit = errormsg.split(' ')
+                setError(errorSplit[2]);
                 console.log(error);
             })
     }
@@ -60,7 +64,9 @@ const Login = () => {
                 navigate(from, {replace:true});
             })
             .catch(error => {
-                setError(error.message);
+                const errormsg = error.message;
+                let errorSplit = errormsg.split(' ')
+                setError(errorSplit[2]);
                 console.log(error);
             })
     }

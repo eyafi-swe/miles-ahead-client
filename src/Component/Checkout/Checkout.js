@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { DarkToggleContext } from '../../Context/ThemeContext';
@@ -10,6 +11,10 @@ const Checkout = () => {
     const { title, image, duration, course_mentor, course_fee } = course;
     const { user } = useContext(AuthContext);
     let { dark } = useContext(DarkToggleContext);
+    const [message, setMessage] = useState('');
+    const handleProceed = () => {
+        setMessage('Procession is under developement.')
+    }
     return (
         <div className={`py-10 ${dark ? 'bg-slate-500' : ''}`}>
             <div className=' container mx-auto'>
@@ -52,13 +57,18 @@ const Checkout = () => {
                                     </div>
                                     <div className='mt-5'>
                                         <h3 className='text-lg font-semibold'>Totoal Fee: {course_fee}</h3>
-                                        <button className='bg-sky-600 px-5 py-2 text-white font-semibold rounded mt-2 disabled'>PROCEED</button>
+                                        <button className='bg-sky-600 px-5 py-2 text-white font-semibold rounded mt-2 ' onClick={handleProceed}>PROCEED</button>
                                     </div>
+                                    {
+                                        message && <div className='mt-5'>
+                                            <p className='text-red-500'>{message}</p>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>
-                    :
-                    <CourseNotFound></CourseNotFound>
+                        :
+                        <CourseNotFound></CourseNotFound>
                 }
             </div>
         </div>
