@@ -7,6 +7,7 @@ import Courses from './Component/Courses/Courses';
 import FAQ from './Component/FAQ/FAQ';
 import Home from './Component/Home/Home';
 import Login from './Component/Login/Login';
+import NotFound from './Component/NotFound/NotFound';
 import Register from './Component/Register/Register';
 import Main from './Layout/Main';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
@@ -58,7 +59,7 @@ function App() {
     },
     {
       path:'*',
-      element:<div>OOPPSS NOT FOUND!!</div>
+      element:<NotFound></NotFound>
     }
   ])
 

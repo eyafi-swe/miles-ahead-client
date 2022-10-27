@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import signuppng from '../../Assets/signuppng.png'
 import { DarkToggleContext } from '../../Context/ThemeContext';
@@ -10,6 +10,7 @@ const Register = () => {
     let { dark } = useContext(DarkToggleContext);
     const { userSignUp, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const navigate = useNavigate();
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
@@ -25,6 +26,7 @@ const Register = () => {
                 handleUpdateUserProfile(name, imageUrl);
                 console.log(user);
                 form.reset();
+                navigate('/');
             })
             .catch(error => {
                 setError(error.message);
