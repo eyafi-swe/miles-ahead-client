@@ -79,7 +79,7 @@ const Navbar = () => {
                                 user?.photoURL ?
                                     <img src={user?.photoURL} alt="" className='h-10 rounded-full' />
                                     :
-                                    <UserCircleIcon className='h-7 w-7' />
+                                    <UserCircleIcon className='h-8 w-8' />
                             }
                         </div>
                     }
