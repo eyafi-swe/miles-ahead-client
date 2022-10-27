@@ -9,7 +9,7 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
 
     if(loading){
-        return <button className="btn loading">loading</button>
+        return <div className='flex justify-center mt-20'><button className="btn loading">loading</button></div>
     }
 
     if(!user){
