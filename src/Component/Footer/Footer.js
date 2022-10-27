@@ -15,7 +15,7 @@ const Footer = () => {
                 <div className='flex flex-col text-white'>
                     <h1 className='text-xl font-semibold mb-2 border-b'>Quick Links</h1>
                     <Link to='/' className='flex items-center mb-2'><LinkIcon className='h-3 w-3' /> Home</Link>
-                    <Link to='/blog' className='flex items-center mb-2'><LinkIcon className='h-3 w-3' /> Blog</Link>
+                    <Link to='/weblog' className='flex items-center mb-2'><LinkIcon className='h-3 w-3' /> Blog</Link>
                     <Link to='/faq' className='flex items-center mb-2'><LinkIcon className='h-3 w-3' /> FAQ</Link>
                     <Link to='/courses' className='flex items-center'><LinkIcon className='h-3 w-3' /> Courses</Link>
                 </div>
