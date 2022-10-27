@@ -3,10 +3,11 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import signuppng from '../../Assets/signuppng.png'
+import { DarkToggleContext } from '../../Context/ThemeContext';
 
 
 const Register = () => {
-
+    let { dark } = useContext(DarkToggleContext);
     const { userSignUp, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
     const handleSignUp = event => {
@@ -45,39 +46,39 @@ const Register = () => {
             })
     }
     return (
-        <>
-            <h1 className='text-center text-4xl font-bold mt-10'>Register To Get Access Of The Courses</h1>
+        <div className={`py-10 ${dark ? 'bg-slate-500' : ''}`}>
+            <h1 className='text-center text-4xl font-bold '>Register To Get Access Of The Courses</h1>
 
             <div className='mb-10 flex lg:flex-row flex-col items-center justify-center'>
                 <div className='flex flex-col items-center'>
                     <img src={signuppng} alt="pngwing-com" border="0" className='h-72 mr-5' />
 
                 </div>
-                <div className="card md:w-1/2 lg:w-2/6 shadow-2xl mt-10 bg-base-100">
+                <div className={`card md:w-1/2 lg:w-2/6 shadow-2xl mt-10 bg-base-100 ${dark ? 'bg-slate-200' : ''}`}>
                     <form className="card-body" onSubmit={handleSignUp}>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Full Name</span>
                             </label>
-                            <input type="text" name='name' placeholder="Full Name" className="input input-bordered" required />
+                            <input type="text" name='name' placeholder="Full Name" className="input input-bordered focus:outline-none" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Image Url (optional)</span>
                             </label>
-                            <input type="text" name='imageurl' placeholder="Image Url (optional)" className="input input-bordered" />
+                            <input type="text" name='imageurl' placeholder="Image Url (optional)" className="input input-bordered focus:outline-none" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                            <input type="email" name='email' placeholder="email" className="input input-bordered focus:outline-none" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                            <input type="password" name='password' placeholder="password" className="input input-bordered focus:outline-none" required />
                             <label className="label">
                                 <Link to='/login' className="label-text-alt link link-hover">Already, have an account? Login Here</Link>
                             </label>
@@ -91,7 +92,7 @@ const Register = () => {
 
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

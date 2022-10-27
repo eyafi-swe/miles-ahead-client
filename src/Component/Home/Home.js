@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AcademicCapIcon, DocumentTextIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 import education from '../../Assets/education.png'
+import { DarkToggleContext } from '../../Context/ThemeContext';
 const Home = () => {
+    let { dark } = useContext(DarkToggleContext);
     return (
-        <>
+        <div className={`pb-10 ${dark ? 'bg-slate-500' : ''}`}>
             <div className='flex md:flex-row flex-col items-center justify-center md:py-10  bg-sky-900  rounded-b-xl'>
                 <div className='mt-10'>
                     <h1 className='text-4xl font-semibold text-white text-center'>MILES AHEAD REMOTE LEARNING</h1>
@@ -19,7 +21,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='container mx-auto grid lg:grid-cols-3 gap-5 mt-10 mb-10 px-5'>
+            <div className='container mx-auto grid lg:grid-cols-3 gap-5 mt-10  px-5'>
                 <div className='text-center lg:text-left'>
                     <h2 className='text-2xl text-gray-500 font-semibold'>ABOUT MILES AHEAD</h2>
                     <h1 className='text-3xl font-semibold mt-2'>Develope Skills With Miles Ahead And Bright Your Future</h1>
@@ -33,7 +35,7 @@ const Home = () => {
                 </div>
             </div>
 
-        </>
+        </div>
     );
 };
 

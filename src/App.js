@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Blog from './Component/Blog/Blog';
+import Checkout from './Component/Checkout/Checkout';
 import CourseDetails from './Component/CourseDetails/CourseDetails';
 import Courses from './Component/Courses/Courses';
 import FAQ from './Component/FAQ/FAQ';
@@ -46,6 +47,11 @@ function App() {
         {
           path:'/register',
           element: <Register></Register>
+        },
+        {
+          path:'/checkout/:courseId',
+          loader:({params})=> fetch(`https://miles-ahead-server.vercel.app/courses/${params.courseId}`),
+          element: <Checkout></Checkout>
         },
       ]
     },

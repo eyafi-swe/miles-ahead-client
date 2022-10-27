@@ -2,9 +2,11 @@ import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import { UserCircleIcon } from '@heroicons/react/24/solid'
+import DarkModeToggle from "react-dark-mode-toggle";
 import logo from "../../favicon.ico"
+import { DarkToggleContext } from '../../Context/ThemeContext';
 const Navbar = () => {
-
+    let { dark, setDark } = useContext(DarkToggleContext);
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleLogout = () => {
@@ -58,20 +60,30 @@ const Navbar = () => {
                     }
                 </ul>
             </div>
-            <div className="navbar-end text-white">
+            <div className="navbar-end text-white ">
                 {/* {user?.email && <span> {user?.displayName ? user?.displayName : user?.email}</span>} */}
 
-                {
-                    user?.uid && <div className='tooltip tooltip-left tooltip-info' data-tip={user?.displayName ? user?.displayName : user?.email}>
+                <div className='mr-5 flex items-center'>
+                    <DarkModeToggle
+                        onChange={() => setDark(!dark)}
+                        checked={dark}
+                        size={45}
+                    />
+                </div>
+                <div>
 
-                        {
-                            user?.photoURL ?
-                                <img src={user?.photoURL} alt="" className='h-10 rounded-full' />
-                                :
-                                <UserCircleIcon className='h-7 w-7'/>
-                        }
-                    </div>
-                }
+                    {
+                        user?.uid && <div className='tooltip tooltip-left tooltip-info' data-tip={user?.displayName ? user?.displayName : user?.email}>
+
+                            {
+                                user?.photoURL ?
+                                    <img src={user?.photoURL} alt="" className='h-10 rounded-full' />
+                                    :
+                                    <UserCircleIcon className='h-7 w-7' />
+                            }
+                        </div>
+                    }
+                </div>
 
             </div>
         </div>

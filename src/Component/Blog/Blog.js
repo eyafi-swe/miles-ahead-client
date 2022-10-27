@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Blogcard from './Blogcard';
 import { ChevronDoubleRightIcon } from '@heroicons/react/24/solid'
+import { DarkToggleContext } from '../../Context/ThemeContext';
 
 const Blog = () => {
+    let { dark } = useContext(DarkToggleContext);
     const blogs = useLoaderData();
     let [showenItem, setShowenItem] = useState(blogs[0]);
     const showDescription = (id) =>{
@@ -13,8 +15,8 @@ const Blog = () => {
         console.log(id);
     }
     return (
-        <div className=''>
-            <h1 className='text-center text-3xl font-semibold mt-10'>Read The Weblogs Of MILES AHEAD</h1>
+        <div className={` py-10 ${dark ? 'bg-slate-500' : ''}`}>
+            <h1 className='text-center text-3xl font-semibold'>Read The Weblogs Of MILES AHEAD</h1>
             <p className='text-center text-xl'>Total Weblogs: {blogs.length}</p>
             <div className='grid lg:grid-cols-4 md:grid-cols-2 gap-10 mt-10 container mx-auto px-5'>
                 {
