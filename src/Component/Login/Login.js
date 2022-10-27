@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import google from '../../Assets/google.png';
 import github from '../../Assets/github.png';
@@ -12,6 +12,12 @@ const Login = () => {
     let { dark } = useContext(DarkToggleContext);
     const { userSignIn, googleSignIn, gitSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    
+    const from = location.state?.from?.pathname || '/';
+
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -23,6 +29,7 @@ const Login = () => {
                 const user = result.user;
                 setError('');
                 console.log(user);
+                navigate(from, {replace:true});
             })
             .catch(error => {
                 setError(error.message);
@@ -37,6 +44,7 @@ const Login = () => {
                 const user = result.user;
                 setError('');
                 console.log(user);
+                navigate(from, {replace:true});
             })
             .catch(error => {
                 setError(error.message);
@@ -49,6 +57,7 @@ const Login = () => {
                 const user = result.user;
                 setError('');
                 console.log(user);
+                navigate(from, {replace:true});
             })
             .catch(error => {
                 setError(error.message);

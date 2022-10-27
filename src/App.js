@@ -9,6 +9,7 @@ import Home from './Component/Home/Home';
 import Login from './Component/Login/Login';
 import Register from './Component/Register/Register';
 import Main from './Layout/Main';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 function App() {
 
@@ -51,7 +52,7 @@ function App() {
         {
           path:'/checkout/:courseId',
           loader:({params})=> fetch(`https://miles-ahead-server.vercel.app/courses/${params.courseId}`),
-          element: <Checkout></Checkout>
+          element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
         },
       ]
     },

@@ -35,7 +35,7 @@ const Checkout = () => {
                                 <label className="label">
                                     <span className="label-text">Email Address</span>
                                 </label>
-                                <input type="email" name='email' placeholder="Email" value={user?.email} className="input input-bordered font-semibold focus:outline-none" readOnly />
+                                <input type="email" name='email' placeholder="Email" value={user?.email ? user?.email : ''} className="input input-bordered font-semibold focus:outline-none" readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
